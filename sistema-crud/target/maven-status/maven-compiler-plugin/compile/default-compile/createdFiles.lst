@@ -1,0 +1,15 @@
+com\saullogax\crud\dto\WebResponse.class
+com\saullogax\crud\controller\BusquedaController.class
+com\saullogax\crud\serviceimpl\BusquedaServiceImpl.class
+com\saullogax\crud\serviceimpl\AgregarServiceImpl.class
+com\saullogax\com\constants\ConstantsMSG.class
+com\saullogax\crud\entity\Cliente.class
+com\saullogax\crud\controller\AgregarController.class
+com\saullogax\crud\service\BusquedaService.class
+com\saullogax\crud\dto\ClienteDto.class
+com\saullogax\crud\exception\ResponseException.class
+com\saullogax\crud\service\AgregarService.class
+com\saullogax\crud\repository\ClienteRepository.class
+com\saullogax\crud\controller\LivenessController.class
+com\saullogax\crud\SistemaCrudApplication.class
+com\saullogax\crud\dto\WebResponseDto.class
