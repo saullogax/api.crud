@@ -4,7 +4,6 @@
  */
 package com.saullogax.crud.controller;
 
-import com.saullogax.crud.dto.WebResponseDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author saul.lopez
  */
 @RestController
-@RequestMapping("/health")
+@RequestMapping("v1/health")
 @Slf4j
 public class LivenessController {
     
