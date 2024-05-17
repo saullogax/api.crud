@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author saul.lopez
  */
 @RestController
-@RequestMapping("/v1/greeting")
+@RequestMapping("/api/v1/greeting")
 @Slf4j
 public class GreetingController {
 

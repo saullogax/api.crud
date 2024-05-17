@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.saullogax.crud</groupId>
 	<artifactId>sistema-crud</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>sistema-crud</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -49,6 +49,12 @@
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-jackson</artifactId>
 			<version>0.11.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.11.0-M1</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>

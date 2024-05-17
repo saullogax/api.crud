@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -24,7 +23,8 @@ public class SecurityConfig {
     private final JwtFilter jwtFilter;
 
     private final AuthenticationProvider authenticationProvider;
-
+    public static final String ENDPOINT_GREETING = "/api/v1/greeting/loginPublic";
+    public static final String ENDPOINT_AUTH = "/api/v1/auth/**";
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf(csrf -> csrf.disable())
@@ -38,8 +38,8 @@ public class SecurityConfig {
 
     private RequestMatcher publicEndpoints(){
         return new OrRequestMatcher(
-            new AntPathRequestMatcher("/v1/greeting/loginPublic"),
-                new AntPathRequestMatcher("/v1/auth/**")
+            new AntPathRequestMatcher("/api/v1/greeting/loginPublic"),
+                new AntPathRequestMatcher("/api/v1/auth/**")
         );
     }
 
