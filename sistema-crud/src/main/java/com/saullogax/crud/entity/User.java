@@ -22,6 +22,7 @@ public class User implements UserDetails {
             strategy = GenerationType.IDENTITY
     )
     private Long codigo;
+    private String usuario;
     private String nombre;
     private String apellido;
     private String telefono;
@@ -43,7 +44,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return usuario;
     }
 
     @Override

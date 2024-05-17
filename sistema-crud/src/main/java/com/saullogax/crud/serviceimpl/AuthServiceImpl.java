@@ -24,6 +24,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public AuthResponse register(RegisterRequest request) {
         var user = User.builder()  //Setea la respuesta del endpoint en user y la guarda en BD
+                .usuario(request.getUsuario())
                 .nombre(request.getNombre())
                 .apellido(request.getApellido())
                 .telefono(request.getTelefono())
@@ -42,11 +43,11 @@ public class AuthServiceImpl implements AuthService {
     public AuthResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.getEmail(),
+                        request.getUsuario(),
                         request.getContrasena()
                 )
         );
-        var user = userRepository.findUserByEmail(request.getEmail()).orElseThrow();
+        var user = userRepository.findUserByUsuario(request.getUsuario()).orElseThrow();
         var jwtToken = jwtService.generateToken(user);
         return AuthResponse.builder()
                 .token(jwtToken)

@@ -30,7 +30,7 @@ public class JwtFilter extends OncePerRequestFilter {
                                     @NonNull FilterChain filterChain) throws ServletException, IOException { //Recibe de parametros los 3 datos necesarios para la autenticacion
         final String authHeader = request.getHeader("Authorization");
         final String jwt;
-        final String userEmail;
+        final String user;
 
         if(authHeader == null || !authHeader.startsWith("Bearer")){ //Valida si la autorizacion es diferente de nulo
                                                                     // o el tipo de autorizacion no empieza con bearer(que es el tipo que estoy usando)
@@ -38,10 +38,10 @@ public class JwtFilter extends OncePerRequestFilter {
             return; //Si se cumple alguna de las dos validaciones, devolverá un 403 forbidden
         }
         jwt = authHeader.substring(7); //Comienza en el 7 porque de donde comienza en Bearer, hasta donde está el token son 7 caracteres
-        userEmail = jwtService.getUser(jwt);
+        user = jwtService.getUser(jwt);
 
-        if(userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null){ //Valida que el usuario no este autenticado
-            UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail); //Verifica en la BD si el usuario existe
+        if(user != null && SecurityContextHolder.getContext().getAuthentication() == null){ //Valida que el usuario no este autenticado
+            UserDetails userDetails = this.userDetailsService.loadUserByUsername(user); //Verifica en la BD si el usuario existe
             if(jwtService.validateToken(jwt, userDetails)){ //Valida si el token es autentico
                 UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                         userDetails,
